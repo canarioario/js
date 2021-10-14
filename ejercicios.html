@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+    <h2 id="ej1">Ejercicio 1 </h2>
+    <p id="demo"></p>
+
+    <button onclick="myFunction()">Edad</button>
+
+    <h2 id="ej2">Ejercicio 2 </h2>
+    <p id="demo2"></p>
+
+    <button onclick="myFunction2()">¿Cual es su nota?</button>
+
+    <script>
+        function myFunction() {
+            // Ej2 mi codigo javascript que se ejecutara cuando demos click en el boton
+            // Pide la edad al usuario y si es mayor de 18 indica que puede conducir 
+            //en caso contrario no.
+            var edad;
+            edad = prompt("Ingrese su edad:");
+            if (typeof edad == "string") {
+                edadin = parseInt(edad);
+            }
+            if (edad >= 18) {
+
+                document.getElementById("demo").innerHTML = "Puedes conducir.";
+
+            } else {
+                document.getElementById("demo").innerHTML = "No puedes conducir.";
+            }
+
+        }
+    </script>
+
+    <script>
+        function myFunction2() {
+            /* Pide una nota (numero). Muestra la calificacion segun la nota:
+            
+             0-3: Muy deficiente 
+             3-5: Insuficiente 
+             6-7: Bien
+             7-9: Notable
+             9-10: Sobresaliente
+            */
+            var nota;
+            nota = prompt("Ingrese su nota:");
+
+            if (typeof nota == "string") {
+                notain = parseInt(nota);
+            }
+            switch (notain) {
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    document.getElementById("demo2").innerHTML = "Muy deficiente.";
+                    break;
+                case 4:
+                    document.getElementById("demo2").innerHTML = "Insuficiente.";
+                    break;
+                case 5:
+                case 6:
+                    document.getElementById("demo2").innerHTML = "Bien.";
+                    break;
+                case 7:
+                case 8:
+                    document.getElementById("demo2").innerHTML = "Notable.";
+                    break;
+                case 9:
+                case 10:
+                    document.getElementById("demo2").innerHTML = "Sobresaliente.";
+                default: document.getElementById("demo2").innerHTML = "Debe una nota ente 1- 10.";
+            }
+
+        }
+    </script>
+</body>
+
+</html>
