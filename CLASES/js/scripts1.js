@@ -16,9 +16,9 @@ elemento.innerHTML += `<p>Hola ${nombre}</p>`;
 
 var opcSalir = confirm("Desea salir?");
 if (opcSalir) {
-  console.log(`Adióssss ${nombre}!!!:()`);
-  alert(`Adióssss ${nombre}!!!:()`);
+    console.log(`Adióssss ${nombre}!!!:()`);
+    alert(`Adióssss ${nombre}!!!:()`);
 } else {
-  console.log(`Muy bien, ${nombre}! valiente:)!!`);
-  alert(`Muy bien, ${nombre}! valiente:)!!`);
+    console.log(`Muy bien, ${nombre}! valiente:)!!`);
+    alert(`Muy bien, ${nombre}! valiente:)!!`);
 }
