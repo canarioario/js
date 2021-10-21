@@ -1,5 +1,5 @@
-var nombre;
-nombre = prompt("Nombre:") || "Sin Nombre";
+var cadena;
+nombre = prompt("Introduzca una cadena de texto o pulsa cancelar:");
 
 // Imprimo el nombre
 //En la página
