@@ -1,95 +1,88 @@
 var respuesta;
-// timecof buscar 
 var resto = 0;
 var letra = "";
 do {
 
-    var respuesta = prompt("Introduce tu dni:");
+    var respuesta = prompt("Introduce tu respuesta:");
     if (Number(respuesta) == respuesta) {
         respuesta = Number(respuesta);
-        if (respuesta >= 0 && respuesta <= 999999999) {
+        if (respuesta >= 0 && respuesta <= 99999999) {
             // calculamos el resto
             resto = respuesta % 23;
             // depende del resto asignamos un valor otro.
 
             // TRWAGMYFPDXBNJZSQVHLCKE
             switch (resto) {
-                case 1:
-                    break;
-                case 1:
+                case 0:
                     letra = "T";
-                    break;
-                case 2:
+                    break
+                case 1:
                     letra = "R";
-                    break;
-                case 3:
+                    break
+                case 2:
                     letra = "W";
-                    break;
-                case 4:
+                    break
+                case 3:
                     letra = "A";
-                    break;
-                case 5:
+                    break
+                case 4:
                     letra = "G";
-                    break;
-                case 6:
+                    break
+                case 5:
                     letra = "M";
-                    break;
-                case 7:
+                    break
+                case 6:
                     letra = "Y";
-                    break;
-                case 8:
+                    break
+                case 7:
                     letra = "F";
-                    break;
-                case 9:
+                    break
+                case 8:
                     letra = "P";
-                    break;
-                case 10:
+                    break
+                case 9:
                     letra = "D";
-                    break;
-                case 11:
+                    break
+                case 10:
                     letra = "X";
-                    break;
-                case 12:
+                    break
+                case 11:
                     letra = "B";
-                    break;
+                    break
+                case 12:
+                    letra = "N";
+                    break
                 case 13:
                     letra = "J";
-                    break;
+                    break
                 case 14:
-                    letra = "N";
-                    break;
-                case 15:
-                    letra = "J";
-                    break;
-                case 16:
                     letra = "Z";
-                    break;
-                case 17:
+                    break
+                case 15:
                     letra = "S";
-                    break;
-                case 18:
+                    break
+                case 16:
                     letra = "Q";
-                    break;
-                case 19:
+                    break
+                case 17:
                     letra = "V";
-                    break;
-                case 20:
+                    break
+                case 18:
                     letra = "H";
-                    break;
-                case 21:
+                    break
+                case 19:
                     letra = "L";
-                    break;
-                case 22:
+                    break
+                case 20:
                     letra = "C";
-                    break;
-                case 23:
+                    break
+                case 21:
                     letra = "K";
-                    break;
-                case 23:
+                    break
+                case 22:
                     letra = "E";
-                    break;
+                    break
                 default:
-                    break;
             }
 
         } else {
@@ -97,27 +90,17 @@ do {
         }
 
     }
-} while ();
+} while (resto < 0);
 
 
-// Imprimo el dni
-//En la página
-document.write("Hola " + dni + "<br/>");
-document.write(`Hola ${dni}`); // Usando template String
+// Imprimo el dni en la página
+document.write("DNI con letra " + respuesta + letra + "<br/>");
+// document.write(`Hola ${respuesta}`); // Usando template String
 
 //En la Consola
-console.log("Hola " + dni);
-console.log(`Hola ${dni}`); // Usando template String
+console.log("DNI con letra " + respuesta + letra);
+// console.log(`Hola ${respuesta}`); // Usando template String
 
 //Usando el Contenedor Bootstrap
 const elemento = document.getElementById("contenedor");
-elemento.innerHTML += `<p>Dni: ${dni}</p>`;
-
-var opcSalir = confirm("Desea salir?");
-if (opcSalir) {
-    console.log(`Adióssss ${dni}!!!:()`);
-    alert(`Adióssss ${dni}!!!:()`);
-} else {
-    console.log(`Muy bien, ${dni}! valiente:)!!`);
-    alert(`Muy bien, ${dni}! valiente:)!!`);
-}
+elemento.innerHTML += `<p>DNI: ${respuesta + letra }</p>`;
