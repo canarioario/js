@@ -1,23 +1,11 @@
-var nombre;
-nombre = prompt("Nombre:") || "Sin Nombre";
-
+// Ejercicio 1. Defina un script que cree dos variables cuyo nombre sea “uno” y “dos” he imprímelas por pantalla.
+// Ponga un comentario con el tipo de dato que contienen.var uno;
+var uno = 1;
+var dos = 2;
 // Imprimo el nombre en la página
-document.write("Hola " + nombre + "<br/>");
-// document.write(`Hola ${nombre}`); // Usando template String
-
+document.write("Variable uno " + uno + "<br/>" + "variable dos " + dos);
 //En la Consola
-console.log("Hola " + nombre);
-// console.log(`Hola ${nombre}`); // Usando template String
-
+console.log("Variable uno " + uno + "<br/>" + "variable dos " + dos);
 //Usando el Contenedor Bootstrap
 const elemento = document.getElementById("contenedor");
-elemento.innerHTML += `<p>Hola ${nombre}</p>`;
-
-var opcSalir = confirm("Desea salir?");
-if (opcSalir) {
-    console.log(`Adiós ${nombre}!`);
-    alert(`Adiós ${nombre}!`);
-} else {
-    console.log(`Muy bien, ${nombre}!`);
-    alert(`Muy bien, ${nombre}!`);
-}
+elemento.innerHTML += `<p>Variable uno  ${uno} <br/> variable dos ${dos}</p>`;
