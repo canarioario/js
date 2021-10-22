@@ -1,4 +1,4 @@
-var dni;
+var respuesta;
 // timecof buscar 
 var resto = 0;
 var letra = "";
@@ -23,7 +23,7 @@ do {
                     letra = "R";
                     break;
                 case 3:
-                    letra
+                    letra = "W";
                     break;
                 case 4:
                     letra = "A";
@@ -62,22 +62,32 @@ do {
                     letra = "J";
                     break;
                 case 16:
+                    letra = "Z";
                     break;
                 case 17:
+                    letra = "S";
                     break;
                 case 18:
+                    letra = "Q";
                     break;
                 case 19:
+                    letra = "V";
                     break;
                 case 20:
+                    letra = "H";
                     break;
                 case 21:
+                    letra = "L";
                     break;
                 case 22:
+                    letra = "C";
                     break;
                 case 23:
+                    letra = "K";
                     break;
-
+                case 23:
+                    letra = "E";
+                    break;
                 default:
                     break;
             }
