@@ -1,3 +1,5 @@
+//Ejercicio 2. Defina un script que solicite un nombre, la edad y muestre por consola el mensaje "Hola ____, tienes ____ años 
+// y el año que viene tendrás ____ años"
 var nombre;
 nombre = prompt("Nombre:") || "Sin Nombre";
 
