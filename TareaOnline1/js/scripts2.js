@@ -1,25 +1,13 @@
 //Ejercicio 2. Defina un script que solicite un nombre, la edad y muestre por consola el mensaje "Hola ____, tienes ____ años 
 // y el año que viene tendrás ____ años"
+var edad;
 var nombre;
-nombre = prompt("Nombre:") || "Sin Nombre";
-
-// Imprimo el nombre en la página
-document.write("Hola " + nombre + "<br/>");
-// document.write(`Hola ${nombre}`); // Usando template String
+nombre = prompt("nombre:") || "Sin nombre";
+edad = prompt("edad:") || "Sin edad";
 
 //En la Consola
-console.log("Hola " + nombre);
-// console.log(`Hola ${nombre}`); // Usando template String
+console.log("Hola " + nombre + " Tienes " + edad + " y el año que viene tendras " + (++edad) + " años");
 
 //Usando el Contenedor Bootstrap
 const elemento = document.getElementById("contenedor");
-elemento.innerHTML += `<p>Hola ${nombre}</p>`;
-
-var opcSalir = confirm("Desea salir?");
-if (opcSalir) {
-    console.log(`Adiós ${nombre}!`);
-    alert(`Adiós ${nombre}!`);
-} else {
-    console.log(`Muy bien, ${nombre}!`);
-    alert(`Muy bien, ${nombre}!`);
-}
+elemento.innerHTML += `<p>Hola ${nombre} hemos recibidos tus datos.</p>`
