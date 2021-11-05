@@ -1,23 +1,34 @@
-var nombre;
-nombre = prompt("Nombre:") || "Sin Nombre";
+/*
+Ejercicio 5. Defina un script que muestre la tabla de multiplicar del número 7 usando los distintos tipos de bucles (3 tipos).
+*/
+var num = 7;
+var tabla1 = 0;
+document.write(`<strong>CON FOR:</br></strong>`);
+for (i = 1; i <= 10; i++) {
+    tabla1 = num * i;
+    document.write(`${num}x${i} = ${tabla1}</br>`); // Usando for
+}
+document.write(`<strong>CON WHILE:</br></strong>`); // Usando while
+var cont = 1;
+var tabla2 = 0;
+while (cont <= 10) {
+    tabla2 = num * cont;
 
-// Imprimo el nombre en la página
-document.write("Hola " + nombre + "<br/>");
-// document.write(`Hola ${nombre}`); // Usando template String
+    document.write(`${num}x${cont} = ${tabla2}</br>`); // Usando while
+    cont++;
+}
+document.write(`<strong>CON DO WHILE:</strong></br>`); // Usando do while
+var cont2 = 1;
+var tabla3 = 0;
+do {
+    tabla3 = num * cont2;
 
-//En la Consola
-console.log("Hola " + nombre);
-// console.log(`Hola ${nombre}`); // Usando template String
+    document.write(`${num}x${cont2} = ${tabla3}</br>`); // Usando do while
+    cont2++;
+} while (cont2 <= 10);
+
+console.log(`${tabla3}`); // Usando template String
 
 //Usando el Contenedor Bootstrap
 const elemento = document.getElementById("contenedor");
-elemento.innerHTML += `<p>Hola ${nombre}</p>`;
-
-var opcSalir = confirm("Desea salir?");
-if (opcSalir) {
-    console.log(`Adiós ${nombre}!`);
-    alert(`Adiós ${nombre}!`);
-} else {
-    console.log(`Muy bien, ${nombre}!`);
-    alert(`Muy bien, ${nombre}!`);
-}
+elemento.innerHTML += `<p>Tablas de multiplicar del 7 con los distintos tipos de bucles </p>`;
