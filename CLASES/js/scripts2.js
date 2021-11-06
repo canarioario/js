@@ -92,6 +92,7 @@ do {
     }
 } while (resto < 0);
 
+// else para no aceptar si es un numeor o no es un numero
 
 // Imprimo el dni en la página
 document.write("DNI con letra " + respuesta + letra + "<br/>");
