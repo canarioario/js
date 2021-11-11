@@ -11,7 +11,7 @@ var altura = 0;
 var radio = 0;
 var solucion = 0;
 var PI = 3.14159;
-
+// -------------------------- CON IF --------------------------------------------
 respuestas = prompt("Figura para calcular el area:");
 if (respuestas == "triangulo" || respuestas == "TRIANGULO") {
     base = prompt("Introduce base:");
@@ -36,6 +36,40 @@ if (respuestas == "triangulo" || respuestas == "TRIANGULO") {
     document.write(`El area del circulo con radio ${radio} es  ${solucion}`);
 
 }
+// -------------------------- CON SWITCH (DESCOMENTAR PARA COMPROBAR Y COMENTAR IF) --------------------------------------------
+
+// respuestas = prompt("Figura para calcular el area:");
+// switch (respuestas) {
+//     case "TRIANGULO":
+//     case "triangulo":
+//         base = prompt("Introduce base:");
+//         altura = prompt("Introduce altura:");
+//         solucion = ((base * altura) / 2);
+//         // Imprimo el nombre en la página
+//         document.write(`El area del triangulo con base ${base} y altura ${altura} es  ${solucion}`);
+//         // Imprimo en consola
+//         console.log(solucion);
+//         break;
+//     case "RECTANGULO":
+//     case "rectangulo":
+//         base = prompt("Introduce base:");
+//         altura = prompt("Introduce altura:");
+//         solucion = (base * altura);
+//         document.write(`El area del rectangulo con base ${base} y altura ${altura} es  ${solucion}`);
+//         // Imprimo en consola
+//         console.log(solucion);
+//         break;
+//     case "CIRCULO":
+//     case "circulo":
+//         radio = prompt("Introduce radio:");
+//         var cuadrado = Math.pow(radio, 2);
+//         solucion = (PI * cuadrado);
+//         document.write(`El area del circulo con radio ${radio} es  ${solucion}`);
+//         break;
+//     default:
+//         document.write(`Debes introducir una de las siguientes opciones: </br>triangulo, </br>rectangulo, </br>circulo.`);
+//         break;
+// }
 
 //console.log(`Hola ${nombre}`); // Usando template String
 
