@@ -1,24 +1,21 @@
-function aleatorio(max, min) {
-    var caracter = "";
-    var contar = "";
+function aleatorio(maximo, minimo) {
+    var maximo = 0;
+    var minimo = 0;
+    var aleato = Math.random();
+    var resultado = Math.round((aleato * (max - min)) + min);
 
-    for (var i = 0; i < texto.length; i++) {
-        caracter = texto.charAt(i);
-        contar = caracter + contar;
 
-    }
-
-    return contar;
+    return resultado;
 }
-var texto = prompt("Introduzca una palabra:") || "Sin palabra";
-var reves = contar(texto);
+var min = Number(prompt("Introduzca el minimo:") || "Sin minimo");
+var max = Number(prompt("Introduzca el maximo:") || "Sin maximo");
+var num = aleatorio(num);
 // Imprimo el cadena en la página
-document.write(`La cadena al original es: ${texto}</br>`);
-document.write(`La cadena al reves es: ${reves}</br>`);
-document.write(`La cadena al reves con split_contar: ${texto.split("").contar().join("")}`);
+document.write(`el numero aleatorio es: ${num}</br>`);
 
-console.log(`La cadena al reves es: ${reves}`); // Usando template String
+// consola
+console.log(`el numero aleatorio es: ${num}`);
 
 //Usando el Contenedor Bootstrap
 const elemento = document.getElementById("contenedor");
-elemento.innerHTML += `<p>La cadena al reves es: ${reves}</p>`;
+elemento.innerHTML += `<p>el numero aleatorio es: ${num}</p>`;
