@@ -1,18 +1,37 @@
-var nombre = prompt("Introduzca su nombre y apellidos:");
-var dia = prompt("Dia de nacimento:");
-var mes = prompt("Mes de nacimento");
-var ano = prompt("Año de nacimento:");
+//	Ejercicio 4. Implemente una aplicación en JavaScript que muestre la siguiente información:
+var nombre = prompt("Introduzca su nombre y apellidos:"); // pedimos y guardamos nombre y apellidos
+var dia = prompt("Dia de nacimento:"); // pedimos y guardamos dia de nacimiento
+var mes = prompt("Mes de nacimento:  (Se introduce un número de 1 a 12)"); // pedimos y guardamos mes de nacimiento
+var ano = prompt("Año de nacimento:"); // pedimos y guardamos año de nacimiento
 var fecha = new Date(); // guardo fecha acutal
 var year = fecha.getFullYear(); // guardo año acutal con getFullYear
-var anoresul = "";
-//if (is_numeric(ano)) {
-//   anoresul = year - ano; // POR AQU ESTAS, INTENTNADO SACAR EL AÑO DE NACIMIENTO
-//} else {
+var anoresul;
+var estacion; // para guardar la estacion
+// comprobamos que estacion era
+if ((dia >= 21 && mes == 3) || (dia <= 20 && mes == 4 || dia >= 21 && mes == 4) || (dia <= 21 && mes == 5 || dia >= 22 && mes == 5) || (dia <= 21 && mes == 6)) {
+    estacion = "Primavera";
+} else if ((dia >= 24 && mes == 9) || (dia <= 23 && mes == 10) || (dia >= 24 && mes == 10) || (dia <= 22 && mes == 11) || (dia >= 23 && mes == 11) || (dia <= 21 && mes == 12)) {
+    estacion = "Otoño";
 
-//}
-//is_numeric(ano)
-// Imprimo el nombre en la página
+} else if ((dia >= 22 && mes == 12) || (dia <= 20 && mes == 1) || (dia >= 21 && mes == 1) || (dia <= 19 && mes == 2) || (dia >= 20 && mes == 2) || (dia <= 20 && mes == 3)) {
 
+    estacion = "Invierno";
+} else if ((dia >= 21 && mes == 6) || (dia <= 23 && mes == 7) || (dia >= 24 && mes == 7) || (dia <= 23 && mes == 8) || (dia >= 24 && mes == 8) || (dia <= 23 && mes == 9)) {
+
+    estacion = "Verano";
+}
+var seno = 180; // seno
+var calSeno = Math.sin(seno); // calculo del seno
+var num = [34, 67, 23, 75, 35, 19]; // definimos valores
+var maximo = Math.max(...num); // calculmos el valor mayor
+var min = 1; // definimos un minimo
+var max = 100; // difinimos un maximo
+var aleatorio = Math.random() * (max - min); // generamos num aleatorio y luego redondeamos al mostrarlo
+var hora = fecha.getHours() + ':' + fecha.getMinutes() + ':' + fecha.getSeconds(); // guardamos hora (Se mostrará la hora en formato de 24 horas o sea: 18:00 y no 06:00.)
+var options = { year: 'numeric', month: 'long', day: 'numeric' }; // definimos formato de la fecha
+var forFecha = fecha.toLocaleDateString("es-ES", options); //devuelve una cadena con una representación de la fecha sensible al lenguaje
+var circulo = 2.5;
+var area = Math.pow(this.radio, 2) * Math.PI;
 platilla1 = (`<li>Buenos dias ${nombre}</li>
 <li>Tu nombre tiene ${ nombre.length} caracteres, incluidos espacios.</li>
 <li>La primera letra A de tu nombre esta en la posicion: ${ nombre.indexOf("a")} </li>
@@ -22,18 +41,27 @@ platilla1 = (`<li>Buenos dias ${nombre}</li>
 <li>Tu nombre en color rojo es: ${ nombre.fontcolor("red") } </li>
 <li>Tu nombre en cursiva es: ${ nombre.italics() } </li>
 `);
-platilla2 = (`<li>Tu edad es años </li> 
-<li>Naciste un/una feliz __ (invierno, primavera, verano, otoño) del año ___. </li>
-
+// definimos plantilla 2
+platilla2 = (`<li>Tu edad es ${anoresul = year - ano}  años</li> 
+<li>Naciste un/una feliz ${estacion} (invierno, primavera, verano, otoño) del año ${ano}. </li>
+`);
+// definimos plantilla 3
+platilla3 = (`<li>	El seno de ${seno} es:${calSeno}</li> 
+<li>El número mayor de (34,67,23,75,35,19) es: ${maximo} </li>
+<li>Ejemplo de número aleatorio entre 1 y 100: ${Math.round(aleatorio)}</li> 
+<li>La hora actual es: ${hora} </li> 
+<li>La fecha actual es: ${forFecha}.</li> 
+<li>El área de la circunferencia de radio 2.5 es: ___.</li> 
+<li>La hipotenusa de un triángulo rectángulo de lados 1 y 2 es: ___</li>
 `);
 
-
+// Mostramos plantillas usando template String
 document.write(` ${platilla1}`);
-document.write(` ${platilla2}`); // Usando template String
-
+document.write(` ${platilla2}`);
+document.write(` ${platilla3}`);
 //En la Consola
 
-console.log(`Hola ${nombre}`); // Usando template String
+console.log(`Hola ${nombre}`);
 
 //Usando el Contenedor Bootstrap
 // co0nst elemento = document.getElementById("contenedor");
