@@ -6,6 +6,7 @@ var nombres = []; // array nombres
 var dias = []; // array dias
 var meses = []; // array meses
 var anos = []; // array años
+var unicos = []; // array para los nombres que no se repiten
 var exit = false; //condicion de salida
 var cont = ""; // contenido
 var i = 0; // contador 
@@ -35,7 +36,7 @@ do { // permanece en bucle mientra exit sea distinto a true
     if (mes == "final" || mes == "FINAL" || mes == "Final") { // si se introduce final en mes 
         alert(`fecha inválida.`); // muestra alerta
     } else if (mes < "01" || mes > "12") {
-        alert(`El mes debe de ser de 1 a 12.`); // si es asi muestra alerta
+        alert(`El mes debe de ser de 01 a 12.`); // si es asi muestra alerta
     } else {
         meses[i] = mes; // si no guardamos en  array meses
     }
@@ -52,15 +53,32 @@ do { // permanece en bucle mientra exit sea distinto a true
     i++; // incrementamos contador
 }
 while (exit != true); // fin bucle
+// bucle para eliminar los nombre duplicados
+for (var i = 0; i < nombres.length; i++) {
 
-// .charAt(0).toUpperCase() + nombres[i].slice(1).toLowerCase() // POR AQUI PONIENDO LA MAYUSCLA AL NOMBRE
+    const elemento = nombres[i];
 
+    if (!unicos.includes(nombres[i])) {
+        unicos.push(elemento);
+    }
+}
 // bucle para mostrar array 
-for (var i = 0; i < nombres.length - 1; i++) { // quitamos uno para que no muestre el final
-    cont += "<li>Nombre: " + nombres[i] + "</li>" + "<li> Fecha de nacimiento: " + dias[i] + "/" + meses[i] + "/" + anos[i] +
-        " </li> -------------------------------------------------------------------------------- </br>"; // guardamos con este formato
+for (var i = 0; i < unicos.length; i++) { //hasta el final del array
+    anoresul = ("2021" - ano);
+    console.log(anoresul)
+    if (anoresul > "18") {
+
+    } else {
+
+    }
 }
 
+for (var i = 0; i < unicos.length; i++) { //hasta el final del array
+
+    cont += "<li>Nombre: " + unicos[i].split(' ').map(w => w[0].toUpperCase() + w.substr(1).toLowerCase()) // para poner la primera letra en mayuscula
+        .join(' ') + "</li>" + "<li> Fecha de nacimiento: " + dias[i] + "/" + meses[i] + "/" + anos[i] +
+        " </li> -------------------------------------------------------------------------------- </br>"; // guardamos con este formato
+}
 // Imprimo el nombre en la página usando template String
 document.write(`${cont}`);
 
