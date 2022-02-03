@@ -22,7 +22,7 @@ class Persona {
         this.edad = edad_in;
     }
 
-    get_nombreCompleto() {
+    _nombreCompleto() {
         return this.nombre + ' ' + this.apellido;
 
     }

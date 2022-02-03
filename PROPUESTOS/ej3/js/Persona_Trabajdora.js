@@ -4,8 +4,8 @@ class Persona_Trabajdora extends Persona {
         this.edad = edad_in;
     }
 
-    get_mostrar() {
-        return super.get_nombreCompleto() + " edad: " + this.edad;
+    mostrar() {
+        return super._nombreCompleto() + " edad: " + this.edad;
 
     }
 }
