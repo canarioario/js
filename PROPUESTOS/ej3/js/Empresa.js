@@ -8,7 +8,7 @@ class Empresa {
         var mostrar = "Nombre empresa " + this.nombre + " edad maxima: " + this.edad + "</br>";
         for (let index = 0; index < this.empleados.length; index++) {
             const element = this.empleados[index];
-            mostrar += "</br>" + element.mostrar();
+            mostrar += "</br>" + element.get_mostrar();
 
         }
         return mostrar;
