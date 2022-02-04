@@ -1,7 +1,7 @@
 class Empresa {
-    constructor(nombre_em, edad) {
+    constructor(nombre_em, edad_en) {
         this.nombre = nombre_em;
-        this.edad = edad;
+        this.edad = edad_en;
         this.empleados = new Array();
     }
     mostrarEmpresa() {
