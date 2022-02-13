@@ -104,25 +104,127 @@ class Diputado extends Persona {
     toString() {
         var retorno;
         if (this.cargo == "") {
-            retorno = "Diputado/a: " + this.nombre + ' ' + this.apellido + ' ' + " edad: " +
-                super._edad + " parido: " + this.partido;
+            retorno = "- Diputado/a: " + this.nombre + ' ' + this.apellido + ' ' + " edad: " +
+                super._edad + " partido: " + Utilidades.sacarSiglas(this.partido).toLocaleUpperCase();
         } else {
-            retorno = "Diputado/a:" + this.nombre + ' ' + this.apellido + ' ' + " edad: " +
-                super._edad + " parido: " + this.partido + " cargo: " + this.cargo;
-
+            retorno = " - Diputado/a:" + this.nombre + ' ' + this.apellido + ' ' + " edad: " +
+                super._edad + " partido: " + Utilidades.sacarSiglas(this.partido).toLocaleUpperCase() + " cargo: " + this.cargo;
         }
         return retorno;
+    }
+}
+
+class Partido {
+    constructor(nombre_in, anio_in) {
+        this.nombre = nombre_in;
+        this.anio = anio_in;
+        this.siglas = Utilidades.sacarSiglas(this.nombre);
+        this.miEquipo = new Array();
+    }
+
+
+    toString() {
+        var mostrar = "* Partido: " + this.nombre + ' ' + ", año de fundacion: " +
+            this.anio + " siglas: " + this.siglas.toLocaleUpperCase() + "</br>" +
+            "&nbsp; &nbsp;Lista de diputados:";
+        for (let index = 0; index < this.miEquipo.length; index++) {
+            const element = this.miEquipo[index];
+            mostrar += "</br>" + element.toString();
+        }
+        return mostrar;
+    }
+
+    añadir_a_equipo(diputado) {
+        this.miEquipo.push(diputado);
+        return true;
+    }
+
+}
+
+class Parlamento {
+    constructor(lugar_in, num_diputados_in) {
+        if (Utilidades.esNum(lugar_in) == false) {
+            this.lugar = lugar_in;
+        }
+        if (Utilidades.esNum(num_diputados_in) == true) {
+            this.num_diputados = num_diputados_in;
+        }
+        this.diputados = new Array();
+    }
+
+    toString() {
+        var mostrar = "* Parlamento de: " + this.lugar + ", nº maximo de diputados: " + this.num_diputados + "</br>" +
+            "&nbsp; &nbsp;Lista de diputados:";
+        for (let index = 0; index < this.diputados.length; index++) {
+            const element = this.diputados[index];
+            mostrar += "</br>" + element.toString();
+        }
+        return mostrar;
+    }
+
+
+
+    get _presidente() {
+        var maximo = 0;
+        for (let index = 0; index < this.diputados.length; index++) {
+            const element = this.diputados[index];
+            if (maximo < element._edad) {
+                maximo = element._edad;
+            }
+        }
+        return maximo;
+    }
+
+    añadirDiputado(diputado) {
+        if (this.diputados.length < this.num_diputados) {
+            this.diputados.push(diputado);
+            return true;
+        } else {
+            alert("El cupo del parlamento esta al maximo");
+            return false;
+        }
 
     }
 
 }
 
+class Utilidades {
+    static sacarSiglas(partido) {
+        var array = partido.split(" ");
+        var total = array.length;
+        var resultado = "";
+        for (var i = 0; i < total; resultado += array[i][0], i++);
+        return resultado;
+    }
+    static esNum(a) {
+        var validar;
+        if (isNaN(a)) {
+            validar = false;
+        } else {
+            validar = true;
+        }
+        return validar;
+    }
+
+
+
+}
 
 
 var persona1 = new Persona("juan", "gomez", "49113346c", 2004);
-var diputado = new Diputado("Paco", "Perez", "49113346c", 2004, "Yo");
+var diputado = new Diputado("Pepe", "Perez", "49113346c", 1996, "Recreativo de huelva");
+var diputado2 = new Diputado("Paco", "Js", "49113346c", 1934, "Recreativo de huelva");
+var partido = new Partido("Recreativo de huelva", 1996);
+var parlamento = new Parlamento("Andalucia", 200);
+partido.añadir_a_equipo(diputado);
 document.write(persona1._mostrarDatos);
 document.write("<br>" + diputado.toString());
+document.write("<br>" + partido.toString());
+parlamento.añadirDiputado(diputado);
+parlamento.añadirDiputado(diputado2);
+document.write("<br>" + parlamento.toString());
+document.write("<br>" + parlamento._presidente);
+//document.write(diputado.sacarSiglas("Partido popular"));
 // document.write(persona1.validarEdad = 2002);
 //document.write(persona1.validarDni = "49113346c");
 //document.write(persona1.nombreCompleto = "Jose Perez");
