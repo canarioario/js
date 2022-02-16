@@ -66,7 +66,6 @@ class Persona {
             if (letra != letr.toUpperCase()) {
                 alert('Dni erroneo, la letra del NIF no se corresponde');
             } else {
-                //console.log('Dni correcto');
                 this.dni = dni_in;
             }
         } else {
@@ -175,7 +174,7 @@ class Parlamento {
         return maximo;
     }
 
-    añadirDiputado(diputado) {
+    set diputado(diputado) {
         if (this.diputados.length < this.num_diputados) {
             this.diputados.push(diputado);
             return true;
@@ -211,19 +210,7 @@ class Utilidades {
 }
 
 
-var persona1 = new Persona("juan", "gomez", "49113346c", 2004);
-var diputado = new Diputado("Pepe", "Perez", "49113346c", 1996, "Recreativo de huelva");
-var diputado2 = new Diputado("Paco", "Js", "49113346c", 1934, "Recreativo de huelva");
-var partido = new Partido("Recreativo de huelva", 1996);
-var parlamento = new Parlamento("Andalucia", 200);
-partido.añadir_a_equipo(diputado);
-document.write(persona1._mostrarDatos);
-document.write("<br>" + diputado.toString());
-document.write("<br>" + partido.toString());
-parlamento.añadirDiputado(diputado);
-parlamento.añadirDiputado(diputado2);
-document.write("<br>" + parlamento.toString());
-document.write("<br>" + parlamento._presidente);
+
 //document.write(diputado.sacarSiglas("Partido popular"));
 // document.write(persona1.validarEdad = 2002);
 //document.write(persona1.validarDni = "49113346c");
