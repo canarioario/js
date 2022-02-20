@@ -1,17 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarea online Objetos de usuario en javascript</title>
+    <meta charset="UTF-8" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="miscss.css" type="text/css" media="all" />
+    <title>Parlamento</title>
 </head>
 
 <body>
+
+    <h2 class="titulo" id="titulo">PARLAMENTO</h2>
+    <p class="texto" id="p"></p>
+    <div class="contenedor" id="contenedor">
+
+        <button class="boton_personalizado" onclick="mostrarParlamento()">Mostrar Parlamento</button>
+        <button class="boton_personalizado" onclick="mostrarDNIaleatorio()">DNI Aleatorio</button>
+        <button class="boton_personalizado" onclick="mostrarEquipos()">Mostrar Equipos</button>
+        <button class="boton_personalizado" onclick="mostrarElecciones()">Elecciones</button>
+
+
+    </div>
     <script src="parlamentarios.js"></script>
     <script src="utilidades_parlamento.js"></script>
-
 
 </body>
 

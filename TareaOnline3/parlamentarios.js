@@ -119,6 +119,7 @@ class Partido {
         this.anio = anio_in;
         this.siglas = Utilidades.sacarSiglas(this.nombre);
         this.miEquipo = new Array();
+        this.vontante = 0;
     }
 
 
@@ -160,8 +161,6 @@ class Parlamento {
         }
         return mostrar;
     }
-
-
 
     get _presidente() {
         var maximo = 0;
