@@ -7,9 +7,9 @@ let diputado6 = new Diputado("Lolo", "Sanchez", "44521447w", 1966, "Partido del 
 let diputado7 = new Diputado("Pilar", "Gonzalez", "29142108g", 1976, "Partido del vecino");
 let diputado8 = new Diputado("Isabel", "Ruiz", "47960050j", 1986, "Partido del vecino");
 let diputado9 = new Diputado("Paco", "Cabreras", "49113346c", 1934, "Partido del vecino");
-let partido1 = new Partido("Partido del mi casa", 1963); //bn
+let partido1 = new Partido("Partido del mi casa", 1963);
 let partido2 = new Partido("Partido del vecino", 1949);
-let parlamento = new Parlamento("Andalucia", 200); //bn
+let parlamento = new Parlamento("Andalucia", 200);
 let partidos = new Array(partido1, partido2);
 class Identidad {
 
@@ -194,7 +194,7 @@ class Identidad {
 
 
 // IMPLEMENTA AQUÍ LAS FUNCIONES LANZADAS POR EL USUARIO
-// Usa los eventos de los botones onClick para lanzarlas
+// Usa los eventos de los botones onClick para lanzarlasA
 function mostrarParlamento() {
     document.getElementById("p").innerHTML = parlamento.toString();
 }
@@ -220,10 +220,6 @@ partido2.añadir_a_equipo(diputado6);
 partido2.añadir_a_equipo(diputado7);
 partido2.añadir_a_equipo(diputado8);
 partido2.añadir_a_equipo(diputado9);
-//document.write(persona1._mostrarDatos);
-//document.write("<br>" + diputado1.toString());
-// document.write("<br>" + partido1.toString());
-// document.write("<br>" + partido2.toString());
 parlamento.diputado = diputado1;
 parlamento.diputado = diputado2;
 parlamento.diputado = diputado3;
@@ -232,8 +228,12 @@ parlamento.diputado = diputado5;
 parlamento.diputado = diputado7;
 parlamento.diputado = diputado8;
 parlamento.diputado = diputado9;
-// document.write("<br>" + parlamento.toString());
 let elect = Identidad.genera_camara(partidos, parlamento.num_diputados);
+//document.write(persona1._mostrarDatos);
+//document.write("<br>" + diputado1.toString());
+// document.write("<br>" + partido1.toString());
+// document.write("<br>" + partido2.toString());
+// document.write("<br>" + parlamento.toString());
 //document.write("<br> Edad maxima de presidente:" + parlamento._presidente);
 //document.write("<br> DNI Aleatorio: " + Identidad.generar_dni());
 //document.write("<br> Generar letra: " + Identidad.generar_letra(49113346));
