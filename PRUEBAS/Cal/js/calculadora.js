@@ -58,7 +58,7 @@
 
      var caja2 = document.f1.txtcaja2.value;
 
-     if (caja2 > caja1) {
+     if (caja2 > 0) {
 
          document.f1.txtcaja2.value = "(-" + caja2 + ")";
 
