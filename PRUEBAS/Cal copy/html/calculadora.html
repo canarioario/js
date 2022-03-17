@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Calculadora</title>
+    <link rel="stylesheet" type="text/css" href="../css/calculadora.css" />
+    <script type="text/javascript" src="../js/calculadora.js"></script>
+</head>
+
+<body>
+    <div id="borde">
+        <div id="cal">
+            <form name="f1"><br />
+                <input type="text" name="txtcaja1" class="display" /><br />
+                <input type="text" name="txtcaja2" value="0" class="display" /><br />
+
+                <div id="teclas">
+                    <input type="button" name="siete" onClick="escribir('7')" value="7" />
+                    <input type="button" name="ocho" onClick="escribir('8')" value="8" />
+                    <input type="button" name="nueve" onClick="escribir('9')" value="9" />
+                    <input type="button" name="sumar" class="arit" onclick="arit('+')" value="+" />
+                    <input type="button" name="restar" class="arit" onclick="arit('-')" value="-" /><br />
+
+                    <input type="button" name="cuatro" onclick="escribir('4')" value="4" />
+                    <input type="button" name="cinco" onclick="escribir('5')" value="5" />
+                    <input type="button" name="seis" onclick="escribir('6')" value="6" />
+                    <input type="button" name="multi" class="arit" onclick="arit('*')" value="*" />
+                    <input type="button" name="divi" class="arit" onclick="arit('/')" value="/" /><br />
+
+                    <input type="button" name="uno" onClick="escribir('1')" value="1" />
+                    <input type="button" name="dos" onClick="escribir('2')" value="2" />
+                    <input type="button" name="tres" onClick="escribir('3')" value="3" />
+                    <input type="button" name="masmenos" class="arit" onClick="masmenos()" value="+/-" />
+                    <input type="button" name="limpar" class="limpiar" onClick="document.f1.reset();" value="C" /><br />
+
+                    <input type="button" name="cero" id="cero" onClick="escribir('0')" value="0" />
+                    <input type="button" name="punto" id="punto" onClick="escribir('.')" value="." />
+                    <input type="button" name="igual" id="ig" onclick="calcular()" value="=" />
+                    <br />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
