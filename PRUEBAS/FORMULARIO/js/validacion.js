@@ -2,7 +2,6 @@
 // Se hará una llamada a la función iniciar()
 // De esta manera nos aseguramos que las asignaciones de eventos no fallarán ya que
 // todos los objetos están disponibles.
-
 window.onload = iniciar;
 
 //----------------------------------------------------------//
@@ -21,11 +20,11 @@ function validar(eventopordefecto) // En la variable que pongamos aquí gestiona
     // lo que hace por defecto es enviar un formulario.
 
     // Validamos cada uno de los apartados con llamadas a sus funciones correspondientes.
-    if (validarcampostexto(this) && validarExpediente() && validarNif() && validarAp1() && validarAp2() && validarNombre() && validarTelefono() && validarCorreo() && validarTurno() && confirm("¿Deseas enviar el formulario?"))
+    if (validarcampostexto(this) && validarExpediente() && validarNif() && validarAp1() && validarAp2() && validarNombre() && validarTelefono() && validarCorreo() && validarTurno() && validarSexo() && $msg == "" && confirm("¿Deseas enviar el formulario?"))
         return true;
     else {
         // Cancelamos el evento de envío por defecto asignado al boton de submit enviar.
-        eventopordefecto.preventDefault();
+        eventopordefecto.document("index.html");
         return false; // Salimos de la función devolviendo false.
     }
 }
@@ -77,7 +76,7 @@ function validarExpediente() {
 
 function validarNombre() {
     //  Con una longitud máxima de 10 caracteres. Sólo puede contener caracteres y guiones bajos.
-    var v_nombre = /([A-Za-z_])$/;
+    var v_nombre = /(^[A-Za-z_]{1,10})$/;
     if (v_nombre.test(document.getElementById("nombre").value)) {
         document.getElementById("nombre").className = "";
         return true;
@@ -95,7 +94,7 @@ function validarNombre() {
 
 function validarAp1() {
     //  Con una longitud máxima de 10 caracteres. Sólo puede contener caracteres y guiones bajos.
-    var v_ap1 = /([A-Za-z_])$/;
+    var v_ap1 = /(^[A-Za-z_]{1,10})$/;
     if (v_ap1.test(document.getElementById("ap1").value)) {
         document.getElementById("ap1").className = "";
         return true;
@@ -114,7 +113,7 @@ function validarAp1() {
 
 function validarAp2() {
     //  Con una longitud máxima de 10 caracteres. Sólo puede contener caracteres y guiones bajos.
-    var v_ap2 = /([A-Za-z_])$/;
+    var v_ap2 = /(^[A-Za-z_]{1,10})$/;
     if (v_ap2.test(document.getElementById("ap2").value)) {
         document.getElementById("ap2").className = "";
         return true;
@@ -130,7 +129,7 @@ function validarAp2() {
 //----------------------------------------------------------//
 
 function validarCorreo() {
-    var v_email = /(^[a-zA-Z0-9_.]+[@]{1}[a-z0-9]+[\.][a-z])$/;
+    var v_email = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
     if (v_email.test(document.getElementById("correo").value)) {
         document.getElementById("correo").className = "";
         return true;
@@ -167,7 +166,6 @@ function validarTurno() {
     // Si es la 0 es que no ha seleccionado ningún nombre de turno.
     if (document.getElementById("turno").selectedIndex == 0) {
         alert("Atención!: Debes seleccionar un turno.");
-
         // Situamos el foco en el campo turno y le asignamos la clase error.
         document.getElementById("turno").focus();
         document.getElementById("turno").className = "error";
@@ -189,6 +187,31 @@ function validarTelefono() {
         document.getElementById("telefono").focus();
         document.getElementById("telefono").className = "error";
         return false;
+    }
+}
+
+//----------------------------------------------------------//
+
+function validarSexo() {
+    // Comprueba que la opción seleccionada sea diferente a 0.
+    // Si es la 0 es que no ha seleccionado ningún nombre de turno.
+    if (!document.querySelector('input[name="sexo"]:checked')) {
+        alert('Error, rellena el campo sexo');
+        return false;
+    } else {
+        return true;
+    }
+}
+
+//----------------------------------------------------------//
+
+
+function validarNumerosa() {
+    if (!registro.checked) {
+        alert('Debe aceptar el registro');
+        return false;
+    } else {
+        return true;
     }
 }
 
