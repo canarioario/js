@@ -1,10 +1,10 @@
-// Select the Elements
+// Selecciona los Elementos
 const clear = document.querySelector(".clear");
 const dateElement = document.getElementById("date");
 const list = document.getElementById("list");
 const input = document.getElementById("input");
 
-// Classes names
+// nombres de clases
 const CHECK = "fa-check-circle";
 const UNCHECK = "fa-circle-thin";
 const LINE_THROUGH = "lineThrough";
@@ -12,40 +12,40 @@ const LINE_THROUGH = "lineThrough";
 // Variables
 let LIST, id;
 
-// get item from localstorage
+// obtener el artículo del almacenamiento local
 let data = localStorage.getItem("TODO");
 
-// check if data is not empty
+// comprobar si los datos no están vacíos
 if (data) {
     LIST = JSON.parse(data);
-    id = LIST.length; // set the id to the last one in the list
-    loadList(LIST); // load the list to the user interface
+    id = LIST.length; // Establece el id al último de la lista
+    loadList(LIST); // carga la lista en la interfaz de usuario
 } else {
-    // if data isn't empty
+    // si los datos no están vacíos
     LIST = [];
     id = 0;
 }
 
-// load items to the user's interface
+// cargar elementos en la interfaz de usuario
 function loadList(array) {
     array.forEach(function(item) {
         addToDo(item.name, item.id, item.done, item.trash);
     });
 }
 
-// clear the local storage
+// borrar el almacenamiento local
 clear.addEventListener("click", function() {
     localStorage.clear();
     location.reload();
 });
 
-// Show todays date
+// Mostrar la fecha de hoy
 const options = { weekday: "long", month: "short", day: "numeric" };
 const today = new Date();
 
 dateElement.innerHTML = today.toLocaleDateString("es", options);
 
-// add to do function
+// añadir a la función de hacer
 
 function addToDo(toDo, id, done, trash) {
 
@@ -66,12 +66,12 @@ function addToDo(toDo, id, done, trash) {
     list.insertAdjacentHTML(position, item);
 }
 
-// add an item to the list user the enter key
+// agregar un elemento a la lista usuario la tecla enter
 document.addEventListener("keyup", function(even) {
     if (event.keyCode == 13) {
         const toDo = input.value;
 
-        // if the input isn't empty
+        // si la entrada no está vacía
         if (toDo) {
             addToDo(toDo, id, false, false);
 
@@ -82,7 +82,7 @@ document.addEventListener("keyup", function(even) {
                 trash: false
             });
 
-            // add item to localstorage ( this code must be added where the LIST array is updated)
+            // agregue el elemento al almacenamiento local (este código debe agregarse donde se actualiza la matriz LIST)
             localStorage.setItem("TODO", JSON.stringify(LIST));
 
             id++;
@@ -92,7 +92,7 @@ document.addEventListener("keyup", function(even) {
 });
 
 
-// complete to do
+// // Completa para hacer
 function completeToDo(element) {
     element.classList.toggle(CHECK);
     element.classList.toggle(UNCHECK);
@@ -101,18 +101,18 @@ function completeToDo(element) {
     LIST[element.id].done = LIST[element.id].done ? false : true;
 }
 
-// remove to do
+// quitar para hacer
 function removeToDo(element) {
     element.parentNode.parentNode.removeChild(element.parentNode);
 
     LIST[element.id].trash = true;
 }
 
-// target the items created dynamically
+//apuntar a los elementos creados dinámicamente
 
 list.addEventListener("click", function(event) {
-    const element = event.target; // return the clicked element inside list
-    const elementJob = element.attributes.job.value; // complete or delete
+    const element = event.target; // devuelve el elemento seleccionado dentro de la lista
+    const elementJob = element.attributes.job.value; // completar o borrar
 
     if (elementJob == "complete") {
         completeToDo(element);
@@ -120,6 +120,6 @@ list.addEventListener("click", function(event) {
         removeToDo(element);
     }
 
-    // add item to localstorage ( this code must be added where the LIST array is updated)
+    // agregue el elemento al almacenamiento local (este código debe agregarse donde se actualiza la matriz LIST)
     localStorage.setItem("TODO", JSON.stringify(LIST));
 });
