@@ -7,9 +7,6 @@
     margin: 0;
 }
 
-
-/* display the buttons in the center of the viewport, one above the other */
-
 body {
     min-height: 100vh;
     display: flex;
@@ -21,18 +18,9 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-
-/* separate the buttons from the preceding elements */
-
 body>*+* {
     margin-block-start: 2.5rem;
 }
-
-
-/* each button has the following properties
-- top, left, size for the active state
-- background, color, border for the color palette
-*/
 
 button {
     --top: 50%;
@@ -52,17 +40,10 @@ button {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
-    /* overflow and position matching the pseudo elements */
     overflow: hidden;
     position: relative;
-    /* remove the default outline
-! substituted with the pseudo elements
-*/
     outline: none;
 }
-
-
-/* if existing, separate the inline icon from the text which follows */
 
 button svg {
     width: 1em;
@@ -70,9 +51,6 @@ button svg {
     display: inline-block;
     margin-inline-end: 0.2rem;
 }
-
-
-/* with a pseudo element add a semitransparent layer with the same color of the text */
 
 button:before {
     content: "";
@@ -91,9 +69,6 @@ button:hover:before {
     opacity: 0.1;
 }
 
-
-/* with another pseudo element add a semitransparent layer clipped to be a circle */
-
 button:after {
     content: "";
     position: absolute;
@@ -107,13 +82,6 @@ button:after {
     opacity: 0.3;
     border-radius: inherit;
 }
-
-
-/*
-! add the transition only as the active state is "enabled"
-! add a negative delay for the clip to already start from a small circle
-! add a delay for the opacity to follow the clip-path
-*/
 
 button:active:after {
     clip-path: circle(100%);

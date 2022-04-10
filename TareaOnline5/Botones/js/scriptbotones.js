@@ -10,7 +10,6 @@ function myFunction() {
         this.style.setProperty('--top', `${(layerY / height) * 100}%`);
         this.style.setProperty('--left', `${(layerX / width) * 100}%`);
 
-        // for the size consider the distance from the farthest angle
         const dx = layerX > width / 2 ? layerX : width - layerX;
         const dy = layerY > height / 2 ? layerY : height - layerY;
         const size = Math.sqrt(dx ** 2 + dy ** 2) * 2;
