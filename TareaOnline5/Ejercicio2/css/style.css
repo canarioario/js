@@ -16,7 +16,7 @@ h1 {
     text-align: center;
 }
 
-tablero {
+#tablero {
     border-bottom: 4px solid #607D8B;
     margin: 5% auto;
 }

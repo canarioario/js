@@ -7,13 +7,13 @@ var container = document.getElementsByClassName('container')[0],
 
 var palabras = ["Cliente", "Servidor", "HLC", "Diseño", "Programacion", "Despliegue", "Empresa", "Lenguajes", "FOL", "Bases", "Redes", "Sistemas"],
     context = tablero.getContext('2d'),
-    randomNumber,
+    nAleatorio,
     fallos = 0,
     partesCuerpo = [cabeza, cuerpo, brazos, piernas];
 
 
 // dimensión del lienzo: ancho: 300 px, alto: 300 px
-// función para dibujar soporte colgante usando tablero
+// función para dibujar soporte colgante usando canvas
 function lienzo() {
     context.beginPath();
     context.moveTo(60, 300);
@@ -28,7 +28,7 @@ function lienzo() {
 lienzo();
 
 
-// funcion para dibujar la cabeza usando tablero
+// funcion para dibujar la cabeza usando canvas
 function cabeza() {
     context.beginPath();
     context.arc(170, 60, 35, 0, 2 * Math.PI);
@@ -45,7 +45,7 @@ function cabeza() {
 }
 
 
-// función para dibujar el lomo usando tablero
+// función para dibujar el lomo usando canvas
 function cuerpo() {
     context.beginPath();
     context.moveTo(170, 95);
@@ -55,7 +55,7 @@ function cuerpo() {
     context.stroke();
 }
 
-// función para dibujar brazos usando tablero
+// función para dibujar brazos usando canvas
 function brazos() {
     // para dibujar la mano izquierda
     context.beginPath();
@@ -75,7 +75,7 @@ function brazos() {
 }
 
 
-// función para dibujar piernas usando tablero
+// función para dibujar piernas usando canvas
 function piernas() {
     // para dibujar la pierna izquierda 
     context.beginPath();
@@ -96,11 +96,11 @@ function piernas() {
 
 
 // generar un número aleatorio - para seleccionar una palabra aleatoria de una matriz de palabras
-randomNumber = Math.floor(Math.random() * palabras.length);
-var palabra = palabras[randomNumber].split('');
+nAleatorio = Math.floor(Math.random() * palabras.length);
+var palabra = palabras[nAleatorio].split('');
 
-// agregando divs a secreta div - para mostrar la palabra de prueba/conjeturas
-// todo estará en blanco para empezar. Se rellenará si se pulsa la tecla de carácter derecha
+// agregando divs a secreta div - para mostrar la palabra de secreta/adivinada
+// todo estará en blanco para empezar. Se rellenará si se pulsa la tecla de carácter correcta
 for (var i = 0; i < palabra.length; i++) {
     var testChar = document.createElement('div');
     testChar.innerHTML = " ";
@@ -144,15 +144,15 @@ function game(e) {
 
     }
 
-    // comprobando si las palabras de prueba y conjeturas han coincidido mediante la creación de una matriz temporal currentStatus
-    var currentStatus = [];
+    // comprobando si las palabras de prueba y creada han coincidido mediante la creación de una matriz temporal palabraCreada
+    var palabraCreada = [];
     for (var j = 0; j < palabra.length; j++) {
-        currentStatus[j] = document.querySelectorAll('.secreta div')[j].innerHTML;
+        palabraCreada[j] = document.querySelectorAll('.secreta div')[j].innerHTML;
     }
 
     // si coincide - juego ganado
     // muestra la ventana ganadora y elimina los detectores de eventos
-    if (currentStatus.toString() == palabra.toString()) {
+    if (palabraCreada.toString() == palabra.toString()) {
         container.style.opacity = 0.3;
         ganado.style.display = "block";
 
